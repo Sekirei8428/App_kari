@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<!-- 
+　　　___  ／
+　　_/･e･) これはChatGPTを用いて作られたものです。
+　∈ミ_ﾉﾉ  ＼
+　　ヽヽ
+ -->
+<html lang="ja">
+<head>
+  <title>時計</title>
+  <link rel="stylesheet" type="text/css" href="./clock_style.css">
+  
+</head>
+<body>
+  <h1 id="date"></h1>
+  <h2 id="time"></h2>
+  
+  <script>
+    // 日付と時刻を表示する関数
+    function displayDateTime() {
+      var dateElement = document.getElementById("date");
+      var timeElement = document.getElementById("time");
+
+      // 現在の日付を取得
+      var currentDate = new Date();
+      var month = currentDate.toLocaleString("default", { month: "long" });
+      var day = currentDate.getDate();
+      var date = month + " " + day+ "日";
+
+      // 現在の時刻を取得
+      var hours = currentDate.getHours();
+      var minutes = currentDate.getMinutes();
+      var seconds = currentDate.getSeconds();
+      var ampm = hours >= 12 ? "午後" : "午前";
+      hours = hours % 12;
+      hours = hours ? hours : 12; // 0時を12時に変換する
+      var time =  ampm + " " +hours + ":" + padZero(minutes) + ":" + padZero(seconds);
+
+      // HTML要素に日付と時刻を表示
+      dateElement.textContent = date;
+      timeElement.textContent = time;
+
+      // 1秒ごとに表示を更新
+      setTimeout(displayDateTime, 1000);
+    }
+
+    // 1桁の数字にゼロを追加する関数
+    function padZero(num) {
+      return num < 10 ? "0" + num : num;
+    }
+
+    // 初回表示
+    displayDateTime();
+  </script>
+  
+</body>
+</html>

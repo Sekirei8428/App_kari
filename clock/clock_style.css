@@ -1,0 +1,15 @@
+﻿h1 {
+	text-align: center;
+	font-size: 5vw;
+}
+
+h2 {
+	text-align: center;
+	font-size: 10vw;
+}
+footer {
+	font-size: 15px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: left; /* 左寄せに設定 */
+  }
